@@ -22,7 +22,7 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
-          "yaw": -2.13,  // Adjusted to move right based on your screen's direction
+          "yaw": -1.5,  // Adjusted precisely to -1.5
           "pitch": 0.05,
           "title": "Station 1: Document AI (Doc AI)",
           "text": "Uses AI to extract and process information from documents automatically.<br><br>It converts unstructured data into structured, usable formats with high accuracy. This reduces manual effort, improves efficiency, and speeds up workflows.",
