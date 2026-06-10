@@ -22,9 +22,16 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
+          "yaw": 0.850,
+          "pitch": 0.15,
+          "title": "Station 1: Document AI (Doc AI)",
+          "text": "Uses AI to extract and process information from documents automatically.<br><br>It converts unstructured data into structured, usable formats with high accuracy. This reduces manual effort, improves efficiency, and speeds up workflows.",
+          "video": "fRA3FSCYE9M"
+        },
+        {
           "yaw": 2.918,
           "pitch": 0.1,
-          "title": "Station 1: Internet of Things (IoT)",
+          "title": "Station 2: Internet of Things (IoT)",
           "text": "Connects devices, sensors, and systems to collect and share real-time data. Improves visibility, automation, and decision-making across operations.",
           "video": "2IVgKpI4xuU"
         }
@@ -32,7 +39,7 @@ var APP_DATA = {
     },
     {
       "id": "1-",
-      "name": "Transition 4",  // <-- CHANGED FROM "" TO "Transition 4"
+      "name": "Transition 4",
       "levels": [
         { "tileSize": 256, "size": 256, "fallbackOnly": true },
         { "tileSize": 512, "size": 512 }
@@ -74,7 +81,7 @@ var APP_DATA = {
         {
           "yaw": 2.807,
           "pitch": 0.1,
-          "title": "Station 2: Sorting Robots (Libiao Robotics)",
+          "title": "Station 3: Sorting Robots (Libiao Robotics)",
           "text": "Uses autonomous sorting robots to move and sort parcels efficiently.<br><br>Increases throughput while reducing manual handling and labour requirements.",
           "video": "AKXPny0ubsc"
         }
@@ -123,7 +130,7 @@ var APP_DATA = {
         {
           "yaw": 2.639,
           "pitch": -0.1,
-          "title": "Station 3: Automated Reach Truck (Linde)",
+          "title": "Station 4: Automated Reach Truck (Linde)",
           "text": "Provides advanced material handling solutions, including forklifts and warehouse automation.<br><br>Enhances safety, productivity, and operational efficiency in logistics environments.",
           "video": "6xEJnABdkBo"
         }
@@ -153,7 +160,7 @@ var APP_DATA = {
         {
           "yaw": 2.801,
           "pitch": 0.0,
-          "title": "Station 4: 4-Way Shuttle (ICAS Technology)",
+          "title": "Station 5: 4-Way Shuttle (ICAS Technology)",
           "text": "An automated storage and retrieval system that moves inventory in multiple directions. Maximises storage density and enables fast, flexible warehouse operations.",
           "video": "nC7-9PYJ1Tk"
         }
@@ -183,7 +190,7 @@ var APP_DATA = {
         {
           "yaw": 2.830,
           "pitch": 0.2,
-          "title": "Station 5: LEAN",
+          "title": "Station 6: LEAN",
           "text": "A methodology focused on eliminating waste and continuously improving processes.<br><br>Helps organisations increase efficiency, quality, and customer value.",
           "video": "s2HCrhNVfak"
         }
@@ -232,7 +239,7 @@ var APP_DATA = {
         {
           "yaw": 3.062,
           "pitch": 0.2,
-          "title": "Station 6: AppSheet Scanner",
+          "title": "Station 7: AppSheet Scanner",
           "text": "A mobile scanning solution built with AppSheet for digital inventory tracking. Enables real-time data capture, reducing manual paperwork and errors.",
           "video": "HOELR0LFNIM"
         }
@@ -240,7 +247,7 @@ var APP_DATA = {
     },
     {
       "id": "9-6-7",
-      "name": "Transition 5",  // <-- CHANGED FROM "Transition 4" TO "Transition 5"
+      "name": "Transition 5",
       "levels": [
         { "tileSize": 256, "size": 256, "fallbackOnly": true },
         { "tileSize": 512, "size": 512 }
@@ -259,7 +266,7 @@ var APP_DATA = {
     },
     {
       "id": "10-",
-      "name": "Transition 6",  // <-- CHANGED FROM "Transition 4" TO "Transition 6"
+      "name": "Transition 6",
       "levels": [
         { "tileSize": 256, "size": 256, "fallbackOnly": true },
         { "tileSize": 512, "size": 512 }
@@ -296,7 +303,7 @@ var APP_DATA = {
         {
           "yaw": 0.023278412192304643,
           "pitch": 0.1354448748955086,
-          "title": "Station 7: Nexus",
+          "title": "Station 8: Nexus",
           "text": "A digital platform that centralises operational data and workflows. Provides better visibility, collaboration, and control across business processes.",
           "video": "OYbPOhK0wPo" 
         }
