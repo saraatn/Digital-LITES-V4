@@ -4,7 +4,7 @@ var APP_DATA = {
       "id": "0-go-to-station-1",
       "name": "Go To Station 1",
       "youtubeId": "2IVgKpI4xuU",
-      "videoYaw": 2.9692191558859236,
+      "videoYaw": 0.5,
       "videoPitch": 0.3344836674719627,
       "levels": [
         { "tileSize": 256, "size": 256, "fallbackOnly": true },
