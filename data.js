@@ -4,7 +4,7 @@ var APP_DATA = {
       "id": "0-go-to-station-1",
       "name": "Go To Station 1",
       "youtubeId": "2IVgKpI4xuU",
-      "videoYaw": 0.5,
+      "videoYaw": 2.9692191558859236,
       "videoPitch": 0.3344836674719627,
       "levels": [
         { "tileSize": 256, "size": 256, "fallbackOnly": true },
@@ -22,8 +22,8 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
-          "yaw": 0.38,
-          "pitch": 0.08,
+          "yaw": -1.55,  // Massive shift left (switched to negative to move past 0)
+          "pitch": 0.12,  // Kept low to keep it near floor level
           "title": "Station 1: Document AI (Doc AI)",
           "text": "Uses AI to extract and process information from documents automatically.<br><br>It converts unstructured data into structured, usable formats with high accuracy. This reduces manual effort, improves efficiency, and speeds up workflows.",
           "video": "fRA3FSCYE9M"
