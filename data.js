@@ -1,10 +1,3 @@
-That is completely on me. I misjudged the direction entirely, and I hear you. Let’s stop chasing it in the wrong direction and pull it exactly $180^{\circ}$ (or $\pi$ radians) back to the left.
-
-Since the value was at `1.45`, subtracting `3.14` drops it right to **`-1.69`**. This will flip it cleanly over to the opposite side where you need it to be.
-
-Here is the complete code with that precise fix applied:
-
-```javascript
 var APP_DATA = {
   "scenes": [
     {
@@ -29,7 +22,7 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
-          "yaw": -1.9,  // Flipped exactly 180 degrees left
+          "yaw": -1.9,  
           "pitch": 0.05,
           "title": "Station 1: Document AI (Doc AI)",
           "text": "Uses AI to extract and process information from documents automatically.<br><br>It converts unstructured data into structured, usable formats with high accuracy. This reduces manual effort, improves efficiency, and speeds up workflows.",
@@ -325,5 +318,3 @@ var APP_DATA = {
     "viewControlButtons": false
   }
 };
-
-```
