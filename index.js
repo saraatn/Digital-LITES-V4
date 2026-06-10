@@ -21,8 +21,17 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA;
 
-  // Track visited scenes to update the progress bar
-  var visitedScenes = new Set();
+  // Track explicit core station scene paths to calculate progress
+  var interactiveStations = [
+    "0-go-to-station-1", // Houses Station 1 & 2
+    "2-go-to-station-2", // Station 3
+    "4-go-to-station-3", // Station 4
+    "5-go-to-station-4", // Station 5
+    "6-go-to-station-5", // Station 6
+    "8-go-to-station-6", // Station 7
+    "11-nexus"           // Station 8
+  ];
+  var visitedStations = new Set();
   var progressBar = document.querySelector('#progress-bar');
 
   // Grab elements from DOM.
@@ -234,10 +243,14 @@
     }
   }
 
+  // FIXED PROGRESS BAR CALCULATION FOR 8 STATIONS
   function updateProgressBar(scene) {
     if (progressBar) {
-      visitedScenes.add(scene.data.id);
-      var percentage = (visitedScenes.size / scenes.length) * 100;
+      if (interactiveStations.includes(scene.data.id)) {
+        visitedStations.add(scene.data.id);
+      }
+      var uniqueVisitedCount = visitedStations.size;
+      var percentage = (uniqueVisitedCount / 7) * 100; 
       progressBar.style.width = percentage + '%';
     }
   }
@@ -327,7 +340,6 @@
     var iconWrapper = document.createElement('div');
     iconWrapper.classList.add('info-hotspot-icon-wrapper');
     
-    // NATIVE HOVER TOOLTIP: Pulls dynamic station names out of your data arrays
     if (hotspot.title) {
       iconWrapper.setAttribute('title', hotspot.title);
     }
@@ -338,7 +350,6 @@
     iconWrapper.appendChild(icon);
     wrapper.appendChild(iconWrapper);
 
-    // DYNAMIC CLICK HANDLER: Injects data models and structures runtime closing hooks smoothly
     iconWrapper.addEventListener('click', function() {
       var modal = document.getElementById('video-modal');
       var modalTitle = document.querySelector('#video-modal h2');
@@ -347,31 +358,27 @@
       var closeBtn = document.getElementById('close-modal');
 
       if (modal) {
-        // Safely inject text values from data.js parameters
         if (modalTitle) modalTitle.innerHTML = hotspot.title || "Station Information";
         if (modalText) modalText.innerHTML = hotspot.text || "";
         
-        // Dynamic YouTube Video Injection
         if (modalIframe) {
           var videoId = hotspot.video || "dQw4w9WgXcQ"; 
           modalIframe.src = "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&autoplay=1";
         }
         
-        // Display the modal block layout container
         modal.style.display = 'flex';
 
-        // Explicitly link dynamic modal teardown triggers
         if (closeBtn) {
           closeBtn.onclick = function() {
             modal.style.display = 'none';
-            if (modalIframe) modalIframe.src = ''; // Instantly strips audio processing streams
+            if (modalIframe) modalIframe.src = '';
           };
         }
 
         modal.onclick = function(event) {
           if (event.target === modal) {
             modal.style.display = 'none';
-            if (modalIframe) modalIframe.src = ''; // Instantly strips audio processing streams
+            if (modalIframe) modalIframe.src = '';
           }
         };
       }
