@@ -449,197 +449,77 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 1;
 }
 
+/* ==========================================================================
+   MODIFIED DESIGN FOR INFO HOTSPOTS (OPAQUE BACKGROUND & ANIMATED PULSE RINGS)
+   ========================================================================== */
+
+/* Overriding default semi-transparent header wrappers */
 .info-hotspot .info-hotspot-header {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: rgb(103,115,131);
+  display: none !important; /* Disables Marzipano's expanding box tooltips */
+}
+
+/* Custom styling for your solid opaque information wrapper */
+.info-hotspot-icon-wrapper {
+  background-color: #1a1a1a !important; /* Solid dark charcoal background */
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  -webkit-transition: width 0.3s ease-in-out 0.5s,
-                      border-radius 0.3s ease-in-out 0.5s;
-  transition: width 0.3s ease-in-out 0.5s,
-              border-radius 0.3s ease-in-out 0.5s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.mobile .info-hotspot .info-hotspot-header {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+/* Scale up slightly on desktop hover profiles */
+.info-hotspot-icon-wrapper:hover {
+  background-color: #333333 !important;
+  transform: scale(1.1);
 }
 
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover {
-  width: 260px;
-  border-radius: 5px;
-  -webkit-transition: width 0.3s ease-in-out,
-                      border-radius 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out,
-              border-radius 0.3s ease-in-out;
-}
-
-.desktop .info-hotspot.visible .info-hotspot-header,
-.desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover {
-  width: 260px;
-  border-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  -webkit-transition: width 0.3s ease-in-out,
-                      border-radius 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out,
-              border-radius 0.3s ease-in-out;
-}
-
-.info-hotspot .info-hotspot-icon-wrapper {
-  width: 40px;
-  height: 40px;
-}
-
-.mobile .info-hotspot .info-hotspot-icon-wrapper {
-  width: 50px;
-  height: 50px;
-}
-
+/* Re-centering graphic icon boundaries */
 .info-hotspot .info-hotspot-icon {
-  width: 90%;
-  height: 90%;
-  margin: 5%;
+  width: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  display: block;
 }
 
-.info-hotspot .info-hotspot-title-wrapper {
-  position: absolute;
-  left: 40px;
-  top: 0;
-  width: 0;
-  height: 40px;
-  padding: 0;
-  overflow: hidden;
-  -webkit-transition: width 0s 0.4s,
-                      padding 0s 0.4s;
-  transition: width 0s 0.4s,
-              padding 0s 0.4s;
-}
-
-.desktop .info-hotspot.visible .info-hotspot-title-wrapper,
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
-  width: 220px;
-  padding: 0 5px;
-  -webkit-transition: width 0s 0.4s,
-                      padding 0s 0.4s;
-  transition: width 0s 0.4s,
-              padding 0s 0.4s;
-}
-
-.info-hotspot .info-hotspot-title-wrapper:before {
+/* Automated Infinite Pulse Effects */
+.info-hotspot-icon-wrapper::before {
   content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: hotspot-pulse 2s infinite ease-out;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.info-hotspot .info-hotspot-title {
-  display: inline-block;
-  vertical-align: middle;
-
-  -moz-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+@keyframes hotspot-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
 }
 
+/* Clean up legacy unneeded text wrappers */
+.info-hotspot .info-hotspot-text,
+.info-hotspot .info-hotspot-title-wrapper,
 .info-hotspot .info-hotspot-close-wrapper {
-  position: absolute;
-  left: 260px;
-  top: 0;
-  height: 40px;
-  width: 40px;
-  border-top-right-radius: 5px;
-  background-color: rgb(78,88,104);
-  visibility: hidden;
-  -ms-transform: perspective(200px) rotateY(90deg);
-  -webkit-transform: perspective(200px) rotateY(90deg);
-  transform: perspective(200px) rotateY(90deg);
-  -ms-transform-origin: 0 50% 0;
-  -webkit-transform-origin: 0 50% 0;
-  transform-origin: 0 50% 0;
-  -webkit-transition: -ms-transform 0.3s 0.3s,
-                      -webkit-transform 0.3s 0.3s,
-                      transform 0.3s 0.3s,
-                      visibility 0s 0.6s;
-  transition: -ms-transform 0.3s 0.3s,
-              -webkit-transform 0.3s 0.3s,
-              transform 0.3s 0.3s,
-              visibility 0s 0.6s;
-}
-
-.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
-  visibility: visible;
-  -ms-transform: perspective(200px) rotateY(0deg);
-  -webkit-transform: perspective(200px) rotateY(0deg);
-  transform: perspective(200px) rotateY(0deg);
-  -webkit-transition: -ms-transform 0.3s,
-                      -webkit-transform 0.3s,
-                      transform 0.3s,
-                      visibility 0s 0s;
-  transition: -ms-transform 0.3s,
-              -webkit-transform 0.3s,
-              transform 0.3s,
-              visibility 0s 0s;
-}
-
-.info-hotspot .info-hotspot-close-icon {
-  width: 70%;
-  height: 70%;
-  margin: 15%;
-}
-
-.info-hotspot .info-hotspot-text {
-  position: absolute;
-  width: 300px;
-  height: auto;
-  max-height: 200px;
-  top: 40px;
-  left: 0;
-  padding: 10px;
-  background-color: rgb(58,68,84);
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  overflow-y: auto;
-  visibility: hidden;
-  /* rotate(90deg) causes transition flicker on Firefox 58 */
-  -ms-transform: perspective(200px) rotateX(-89.999deg);
-  -webkit-transform: perspective(200px) rotateX(-89.999deg);
-  transform: perspective(200px) rotateX(-89.999deg);
-  -ms-transform-origin: 50% 0 0;
-  -webkit-transform-origin: 50% 0 0;
-  transform-origin: 50% 0 0;
-  -webkit-transition: -ms-transform 0.3s,
-                      -webkit-transform 0.3s,
-                      transform 0.3s,
-                      visibility 0s 0.3s;
-  transition: -ms-transform 0.3s,
-              -webkit-transform 0.3s,
-              transform 0.3s,
-              visibility 0s 0.3s;
-
-  -moz-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-
-.desktop .info-hotspot.visible .info-hotspot-text {
-  visibility: visible;
-  -ms-transform: perspective(200px) rotateX(0deg);
-  -webkit-transform: perspective(200px) rotateX(0deg);
-  transform: perspective(200px) rotateX(0deg);
-  -webkit-transition: -ms-transform 0.3s 0.3s,
-                      -webkit-transform 0.3s 0.3s,
-                      transform 0.3s 0.3s,
-                      visibility 0s 0s;
-  transition: -ms-transform 0.3s 0.3s,
-              -webkit-transform 0.3s 0.3s,
-              transform 0.3s 0.3s,
-              visibility 0s 0s;
+  display: none !important;
 }
 
 /* Info hotspot modal */
@@ -672,7 +552,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -webkit-transition: opacity 0.2s ease-in-out,
                       visibility 0s 0s;
   transition: opacity 0.2s ease-in-out,
-              visibility 0s 0s;
+                      visibility 0s 0s;
 }
 
 .info-hotspot-modal .info-hotspot-header {
