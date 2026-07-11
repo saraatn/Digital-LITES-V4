@@ -22,7 +22,7 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
-          "yaw": -1.69,  // Flipped exactly 180 degrees left
+          "yaw": -1.69,
           "pitch": 0.05,
           "title": "Station 1: Document AI (Doc AI)",
           "text": "Uses AI to extract and process information from documents automatically.<br><br>It converts unstructured data into structured, usable formats with high accuracy. This reduces manual effort, improves efficiency, and speeds up workflows.",
@@ -178,8 +178,10 @@ var APP_DATA = {
       ],
       "faceSize": 400,
       "initialViewParameters": {
-        "yaw": 2.8306948169325654,
-        "pitch": 0.3739042841725819,
+        /* FIX 1: Shifted yaw & pitch from 2.83 / 0.37 so that entering this room 
+           snaps camera directly to face the Photo 1 assembly workbench angle */
+        "yaw": -0.4215, 
+        "pitch": -0.0820,
         "fov": 1.3802197895323118
       },
       "linkHotspots": [
@@ -192,6 +194,14 @@ var APP_DATA = {
           "pitch": 0.2,
           "title": "Station 6: LEAN",
           "text": "A methodology focused on eliminating waste and continuously improving processes.<br><br>Helps organisations increase efficiency, quality, and customer value.",
+          "video": "s2HCrhNVfak"
+        },
+        /* FIX 2: Populated new infoHotspot mapped directly to your yellow workbench circle */
+        {
+          "yaw": -0.4850,
+          "pitch": -0.1250,
+          "title": "Station 6: LEAN Workstation Overview",
+          "text": "Detailed analysis area for identifying workflow optimizations and tracking assembly performance metrics.",
           "video": "s2HCrhNVfak"
         }
       ]
